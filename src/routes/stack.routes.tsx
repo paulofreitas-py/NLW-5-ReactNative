@@ -1,31 +1,50 @@
-import React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
 
-import { Welcome } from "../pages/Welcome";
-import { UserIdentification } from "../pages/UserIdentification";
-import { Confirmation } from "../pages/Confirmation";
-import { plantSelect } from "../pages/PlantSelect";
+import colors from '../styles/colors';
+import { Welcome } from '../pages/Welcome';
+import { UserIdentification } from '../pages/UserIdentification';
+import { Confirmation } from '../pages/Confirmation';
+import { PlantSave } from '../pages/PlantSave';
 
-import colors from "../styles/colors";
+import AuthRoutes from './tab.routes';
 
-const stackRoutes = createStackNavigator();
+const StackRoutes = createStackNavigator();
 
 const AppRoutes: React.FC = () => (
-    <stackRoutes.Navigator
-        headerMode="none"
-        screenOptions={{ cardStyle: { backgroundColor: colors.white } }}
-    >
-        <stackRoutes.Screen name="Welcome" component={Welcome} />
-
-        <stackRoutes.Screen
-            name="UserIdentification"
-            component={UserIdentification}
-        />
-
-        <stackRoutes.Screen name="Confirmation" component={Confirmation} />
-        
-        <stackRoutes.Screen name="PlantSelect" component={plantSelect} />
-    </stackRoutes.Navigator>
-);
+  <StackRoutes.Navigator
+    headerMode="none"
+    screenOptions={{
+      cardStyle: {
+        backgroundColor: colors.white
+      }
+    }}
+  >
+    <StackRoutes.Screen 
+      name="Welcome"
+      component={Welcome}
+    />
+    <StackRoutes.Screen 
+      name="UserIdentification"
+      component={UserIdentification}
+    />
+    <StackRoutes.Screen 
+      name="Confirmation"
+      component={Confirmation}
+    />
+    <StackRoutes.Screen 
+      name="PlantSelect"
+      component={AuthRoutes}
+    />
+    <StackRoutes.Screen 
+      name="PlantSave"
+      component={PlantSave}
+    />
+    <StackRoutes.Screen 
+      name="MyPlants"
+      component={AuthRoutes}
+    />
+  </StackRoutes.Navigator>
+)
 
 export default AppRoutes;
